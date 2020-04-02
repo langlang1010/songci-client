@@ -22,7 +22,9 @@ npm run serve
 
 需要根据实际情况配置后端服务地址，即修改 `src/global.js` 文件中的 `host` 属性。
 
-
+### 项目相关
+* 爬虫源码地址：[https://github.com/langlang1010/songci-scrapy/](https://github.com/langlang1010/songci-scrapy/)
+* 后端源码地址：[https://github.com/langlang1010/songci/](https://github.com/langlang1010/songci/)
 
 
 
