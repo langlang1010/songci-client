@@ -9,8 +9,11 @@
               <b-card-title><a href="#">词人</a></b-card-title>
               <div>
                 <b-row>
-                  <b-col v-for="author in authors" v-bind:key="author"
-                    cols="6" md="3"
+                  <b-col
+                    v-for="(author, index) in authors"
+                    v-bind:key="index"
+                    cols="6"
+                    md="3"
                   >
                     <router-link :to="'/content/person/' + author">
                       <a class="tag-link" :href="'/content/person/' + author">{{

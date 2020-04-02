@@ -4,7 +4,8 @@
       <b-card header="标签" header-tag="header">
         <div>
           <b-row>
-            <b-col v-for="tag in tags" v-bind:key="tag">
+            <b-col cols="3"
+                    md="3" v-for="(tag, index) in tags" v-bind:key="index">
               <router-link :to="'/content/search/' + tag">
                 <a class="tag-link" :href="'/content/search/' + tag">{{
                   tag
@@ -31,7 +32,12 @@
       <b-card header="词人" header-tag="header">
         <div>
           <b-row>
-            <b-col v-for="author in authors" v-bind:key="author">
+            <b-col
+              cols="3"
+              md="3"
+              v-for="(author, index) in authors"
+              v-bind:key="index"
+            >
               <router-link :to="'/content/search/' + author">
                 <a class="tag-link" :href="'/content/search/' + author">{{
                   author
@@ -46,7 +52,8 @@
       <b-card header="词牌名" header-tag="header">
         <div>
           <b-row>
-            <b-col v-for="title in titles" v-bind:key="title">
+            <b-col cols="3"
+                    md="3" v-for="(title, index) in titles" v-bind:key="index">
               <router-link :to="'/content/title/' + title">
                 <a class="tag-link" :href="'/content/title/' + title">{{
                   title
@@ -60,7 +67,7 @@
     <div class="all-tags">
       <b-card header="关注我">
         <div class="text-center">
-          <img src="wechat.jpg" style="width:50%" />
+          <img src="../assets/wechat.jpg" style="width:50%" />
         </div>
       </b-card>
     </div>
@@ -92,8 +99,6 @@ export default {
 <style scoped>
 .tag-link {
   color: rgb(0, 8, 117);
-  /* padding-left: 8px; */
-  /* padding-right: 8px; */
   padding-top: 8px;
 }
 .all-tags {

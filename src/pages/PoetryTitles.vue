@@ -10,7 +10,7 @@
               <b-card-text class="poetry-card-p">
                 <div>
                   <b-row >
-                    <b-col v-for="title in titles" v-bind:key="title"
+                    <b-col v-for="(title,index) in titles" v-bind:key="index"
                           cols="6" md="3">
                       <router-link :to="'/content/title/' + title">
                         <a class="tag-link" :href="'/content/title/' + title">{{

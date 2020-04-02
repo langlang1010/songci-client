@@ -8,8 +8,8 @@
             <b-card
               style="background: rgb(240,239,226)"
               class="poetry-card mb-2"
-              v-for="poetry in poetries"
-              v-bind:key="poetry.id"
+              v-for="(poetry, index) in poetries"
+              v-bind:key="index"
             >
               <b-card-title
                 ><router-link :to="'/detail/' + poetry.id">
@@ -25,8 +25,9 @@
                     {{ poetry.preface }}
                   </p></small
                 >
-                <p>{{ poetry.content[0] }}</p>
-                <p>{{ poetry.content[1] }}</p>
+                <p v-for="(con, index) in poetry.content" :key="index">
+                  {{ con }}
+                </p>
               </b-card-text>
             </b-card>
             <div class="overflow-auto">

@@ -23,8 +23,9 @@
                     {{ poetry.preface }}
                   </p></small
                 >
-                <p>{{ poetry.content[0] }}</p>
-                <p>{{ poetry.content[1] }}</p>
+                <p v-for="(con, index) in poetry.content" :key="index">
+                  {{ con }}
+                </p>
               </b-card-text>
             </b-card>
             <b-card style="background: rgb(240,239,226)" class="mb-2">
@@ -38,7 +39,7 @@
                   <small> {{ explanation }} </small>
                 </p>
                 <strong>注释</strong>
-                <p v-for="note in supplement.notes" v-bind:key="note">
+                <p v-for="(note, index) in supplement.notes" v-bind:key="index">
                   <small> {{ note }} </small>
                 </p>
               </b-card-text>
@@ -50,7 +51,7 @@
         </div>
       </b-container>
     </div>
-    <PoetryFooter msg="Welcome to Your Vue.js App" />
+    <PoetryFooter />
   </div>
 </template>
 
@@ -78,7 +79,6 @@ export default {
   watch: {
     $route: function() {
       this.loadData()
-      this.$refs.box.scrollTop = 0
     }
   },
   methods: {
