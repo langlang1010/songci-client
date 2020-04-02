@@ -1,4 +1,5 @@
-## Poetry-client
+## 宋词学习网站-前端
+欢迎访问宋词学习网 [https://smileyan.cn/songci/](https://smileyan.cn/songci/)
 
 ### 环境说明
 
@@ -25,6 +26,5 @@ npm run serve
 ### 项目相关
 * 爬虫源码地址：[https://github.com/langlang1010/songci-scrapy/](https://github.com/langlang1010/songci-scrapy/)
 * 后端源码地址：[https://github.com/langlang1010/songci/](https://github.com/langlang1010/songci/)
-
 
 
