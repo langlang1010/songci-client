@@ -19,6 +19,9 @@ cnpm install
 npm run serve
 ```
 
+### 部分文档
+[项目介绍](https://github.com/langlang1010/songci-client/blob/master/base-doc.md)
+
 ### 配置接口
 
 需要根据实际情况配置后端服务地址，即修改 `src/global.js` 文件中的 `host` 属性。
