@@ -1,97 +1,75 @@
 <template>
   <div>
-    <PoetryHeader />
-    <div class="poetry-content" style="padding-bottom: 180px;">
-      <b-container>
-        <div class="row">
-          <div class="col-md-8 order-md-1">
-            <b-card style="background: rgb(240,239,226)" class="mb-2">
-              <b-card-title>
-                <a href="#">{{ poetry.title }}▪{{ poetry.name }}</a>
-              </b-card-title>
-              <b-card-text class="poetry-card-p">
-                <p>
-                  <router-link :to="'/content/person/' + poetry.author">
-                    <a :href="'/content/person/' + poetry.author">
-                      {{ poetry.author }}</a
-                    >
-                  </router-link>
-                </p>
+    <b-card style="background: rgb(240, 239, 226);" class="mb-2">
+      <b-card-title>
+        <a href="#">{{ poetry.title }}▪{{ poetry.name }}</a>
+      </b-card-title>
+      <b-card-text class="poetry-card-p">
+        <p>
+          <router-link :to="'/content/person/' + poetry.author">
+            <a :href="'/content/person/' + poetry.author">
+              {{ poetry.author }}</a
+            >
+          </router-link>
+        </p>
 
-                <small
-                  ><p v-if="poetry.preface !== 'null'">
-                    {{ poetry.preface }}
-                  </p></small
-                >
-                <p v-for="(con, index) in poetry.content" :key="index">
-                  {{ con }}
-                </p>
-              </b-card-text>
-            </b-card>
-            <b-card style="background: rgb(240,239,226)" class="mb-2">
-              <b-card-title><a href="#">注解</a></b-card-title>
-              <b-card-text class="poetry-card-p">
-                <strong>译文</strong>
-                <p
-                  v-for="explanation in supplement.explanations"
-                  v-bind:key="explanation"
-                >
-                  <small> {{ explanation }} </small>
-                </p>
-                <strong>注释</strong>
-                <p v-for="(note, index) in supplement.notes" v-bind:key="index">
-                  <small> {{ note }} </small>
-                </p>
-              </b-card-text>
-            </b-card>
-          </div>
-          <div class="col-md-4 order-md-2 mb-4">
-            <PoetrySidebar />
-          </div>
-        </div>
-      </b-container>
-    </div>
-    <PoetryFooter />
+        <small
+          ><p v-if="poetry.preface !== 'null'">
+            {{ poetry.preface }}
+          </p></small
+        >
+        <p v-for="(con, index) in poetry.content" :key="index">
+          {{ con }}
+        </p>
+      </b-card-text>
+    </b-card>
+    <b-card style="background: rgb(240, 239, 226);" class="mb-2">
+      <b-card-title><a href="#">注解</a></b-card-title>
+      <b-card-text class="poetry-card-p">
+        <strong>译文</strong>
+        <p
+          v-for="(explanation, index) in supplement.explanations"
+          v-bind:key="index"
+        >
+          <small> {{ explanation }} </small>
+        </p>
+        <strong>注释</strong>
+        <p v-for="(note, index) in supplement.notes" v-bind:key="index">
+          <small> {{ note }} </small>
+        </p>
+      </b-card-text>
+    </b-card>
   </div>
 </template>
 
 <script>
-import PoetryHeader from '../components/PoetryHearder.vue'
-import PoetrySidebar from '../components/PoetrySidebar.vue'
-import PoetryFooter from '../components/PoetryFooter.vue'
-
 export default {
   name: 'PoetryDetail',
-  components: {
-    PoetryHeader,
-    PoetrySidebar,
-    PoetryFooter
-  },
   data() {
     return {
       poetry: {},
       supplement: {
         explanations: [],
-        notes: []
-      }
+        notes: [],
+      },
     }
   },
   watch: {
-    $route: function() {
+    $route: function () {
       this.loadData()
-    }
+    },
   },
   methods: {
     loadData() {
       const id = this.$route.params.pathMatch
       var url = this.$global_msg.host + 'content/id/' + id
-      this.axios.get(url).then(response => {
+      this.axios.get(url).then((response) => {
         let res = response.data
         this.poetry = res.data
       })
 
       var url2 = this.$global_msg.host + 'supplement/id/' + id
-      this.axios.get(url2).then(response => {
+      this.axios.get(url2).then((response) => {
         let res = response.data
 
         var temp = res.data.explanation
@@ -106,12 +84,12 @@ export default {
         }
       })
       window.scrollTo(0, 0)
-    }
+    },
   },
 
-  mounted: function() {
+  mounted: function () {
     this.loadData()
-  }
+  },
 }
 </script>
 

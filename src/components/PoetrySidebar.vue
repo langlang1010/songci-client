@@ -38,7 +38,7 @@
               v-for="(author, index) in authors"
               v-bind:key="index"
             >
-              <router-link :to="'/content/search/' + author">
+              <router-link :to="'/content/person/' + author">
                 <a class="tag-link" :href="'/content/search/' + author">{{
                   author
                 }}</a></router-link
