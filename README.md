@@ -1,5 +1,5 @@
 ## 宋词学习网站-前端
-欢迎访问宋词学习网 [https://smileyan.cn/songci/](https://smileyan.cn/songci/)
+欢迎访问宋词学习网 [https://x.withyan.cn/songci/](https://x.withyan.cn/songci/)
 
 ### 环境说明
 

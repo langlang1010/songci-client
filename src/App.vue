@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <PoetryHeader />
-    <div class="poetry-content" style="padding-bottom: 180px;">
+    <div class="poetry-content" style="padding-bottom: 30px;">
       <b-container>
         <div class="row">
           <div class="col-md-8 order-md-1">
